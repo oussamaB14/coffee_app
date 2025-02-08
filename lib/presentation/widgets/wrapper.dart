@@ -26,34 +26,42 @@ class _WrapperState extends State<Wrapper> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _screens[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _currentIndex,
-        elevation: 0,
-        backgroundColor: Colors.white,
-        selectedItemColor: AppColors.colorFoundationBrownNormal,
-        unselectedItemColor: AppColors.colorFoundationGreyLighter,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        onTap: (index) => setState(() => _currentIndex = index),
-        items: [
-          _buildNavItem(
-            icon: IconlyLight.home,
-            activeIcon: IconlyBold.home,
-          ),
-          _buildNavItem(
-            icon: IconlyLight.heart,
-            activeIcon: IconlyBold.heart,
-          ),
-          _buildNavItem(
-            icon: IconlyLight.bag,
-            activeIcon: IconlyBold.bag,
-          ),
-          _buildNavItem(
-            icon: IconlyLight.notification,
-            activeIcon: IconlyBold.notification,
-          ),
-        ],
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.transparent,
+            )
+          ],
+        ),
+        child: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          currentIndex: _currentIndex,
+          backgroundColor: Colors.white,
+          selectedItemColor: AppColors.colorFoundationBrownNormal,
+          unselectedItemColor: AppColors.colorFoundationGreyLighter,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          onTap: (index) => setState(() => _currentIndex = index),
+          items: [
+            _buildNavItem(
+              icon: IconlyLight.home,
+              activeIcon: IconlyBold.home,
+            ),
+            _buildNavItem(
+              icon: IconlyLight.heart,
+              activeIcon: IconlyBold.heart,
+            ),
+            _buildNavItem(
+              icon: IconlyLight.bag,
+              activeIcon: IconlyBold.bag,
+            ),
+            _buildNavItem(
+              icon: IconlyLight.notification,
+              activeIcon: IconlyBold.notification,
+            ),
+          ],
+        ),
       ),
     );
   }
