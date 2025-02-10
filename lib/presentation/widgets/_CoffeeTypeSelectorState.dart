@@ -50,7 +50,7 @@ class CoffeeTypeChip extends StatelessWidget {
 
   String get displayName {
     switch (type) {
-      case CoffeeType.coldbrew:
+      case CoffeeType.machiato:
         return 'Cold Brew';
       default:
         return type.name[0].toUpperCase() + type.name.substring(1);
@@ -63,14 +63,16 @@ class CoffeeTypeChip extends StatelessWidget {
       label: Text(displayName),
       selected: isSelected,
       onSelected: onSelected,
+      showCheckmark: false,
       labelStyle: TextStyle(
         color: isSelected ? Colors.white : Colors.black,
-        fontWeight: FontWeight.w500,
+        fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+        fontSize: isSelected ? 16 : 14,
       ),
       backgroundColor: Colors.grey[200],
       selectedColor: AppColors.colorFoundationBrownNormal,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(10),
         side: BorderSide(
           color: isSelected 
               ? AppColors.colorFoundationBrownNormal 
@@ -79,8 +81,8 @@ class CoffeeTypeChip extends StatelessWidget {
         ),
       ),
       padding: const EdgeInsets.symmetric(
-        horizontal: 20,
-        vertical: 12,
+        horizontal: 10,
+        vertical: 6,
       ),
     );
   }

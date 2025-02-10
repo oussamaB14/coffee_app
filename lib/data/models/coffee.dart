@@ -18,7 +18,6 @@ class Coffee {
     this.type = CoffeeType.latte,
     this.size = CoffeeSize.small,
   });
-  
 
   Coffee copyWith({
     String? name,
@@ -38,13 +37,13 @@ class Coffee {
 
   Map<String, dynamic> toMap() {
     final result = <String, dynamic>{};
-  
+
     result.addAll({'name': name});
     result.addAll({'price': price});
     result.addAll({'image': image});
     result.addAll({'description': description});
     result.addAll({'rate': rate});
-  
+
     return result;
   }
 
@@ -70,34 +69,35 @@ class Coffee {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-  
+
     return other is Coffee &&
-      other.name == name &&
-      other.price == price &&
-      other.image == image &&
-      other.description == description &&
-      other.rate == rate;
+        other.name == name &&
+        other.price == price &&
+        other.image == image &&
+        other.description == description &&
+        other.rate == rate;
   }
 
   @override
   int get hashCode {
     return name.hashCode ^
-      price.hashCode ^
-      image.hashCode ^
-      description.hashCode ^
-      rate.hashCode;
+        price.hashCode ^
+        image.hashCode ^
+        description.hashCode ^
+        rate.hashCode;
   }
 }
 
-enum CoffeeType { latte, cappuccino, espresso, coldbrew, mocha, americano }
+enum CoffeeType { machiato, latte, americano, cappuccino, espresso, mocha,deepfoam }
 
 enum CoffeeSize { small, medium, large }
+
 final List<Coffee> coffees = [
   Coffee(
-    name: 'Caramel Latte',
+    name: 'Caffe Mocha',
     price: 4.99,
-    image: 'assets/coffees/caramel_latte.png',
-    description: 'Sweet caramel mixed with creamy latte',
+    image: 'assets/images/Coffee/2.png',
+    description: 'Deep Foam',
     rate: 4.8,
     type: CoffeeType.latte,
     size: CoffeeSize.medium,
@@ -105,16 +105,16 @@ final List<Coffee> coffees = [
   Coffee(
     name: 'Iced Cappuccino',
     price: 5.49,
-    image: 'assets/coffees/iced_cappuccino.png',
-    description: 'Chilled cappuccino with foam art',
+    image: 'assets/images/Coffee/3.png',
+    description: 'Expresso',
     rate: 4.5,
-    type: CoffeeType.cappuccino,
+    type: CoffeeType.espresso,
     size: CoffeeSize.large,
   ),
   Coffee(
     name: 'Espresso Shot',
     price: 3.99,
-    image: 'assets/coffees/espresso_shot.png',
+    image: 'assets/images/Coffee/1.png',
     description: 'Strong single-origin espresso',
     rate: 4.7,
     type: CoffeeType.espresso,
@@ -123,16 +123,16 @@ final List<Coffee> coffees = [
   Coffee(
     name: 'Vanilla Cold Brew',
     price: 5.99,
-    image: 'assets/coffees/vanilla_cold_brew.png',
+    image: 'assets/images/Coffee/4.png',
     description: 'Smooth cold brew with vanilla notes',
     rate: 4.9,
-    type: CoffeeType.coldbrew,
+    type: CoffeeType.machiato,
     size: CoffeeSize.medium,
   ),
   Coffee(
     name: 'Mocha Dream',
     price: 6.49,
-    image: 'assets/coffees/mocha_dream.png',
+    image: 'assets/images/Coffee/5.png',
     description: 'Rich chocolate and coffee blend',
     rate: 4.6,
     type: CoffeeType.mocha,
