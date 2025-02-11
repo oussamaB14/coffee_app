@@ -82,9 +82,11 @@ class HomeScreen extends StatelessWidget {
                     image: coffee.image,
                     rating: coffee.rate,
                     description: coffee.type.toString().split('.').last,
-                    onFavoritePressed: () {},
+                    onFavoritePressed: () {
+                      // Navigator.pushNamed(context, AppRoutes.details);
+                    },
                     onTap: () {
-                      // Handle card tap
+                      Navigator.pushNamed(context, AppRoutes.details);
                     },
                   );
                 },

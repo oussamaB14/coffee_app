@@ -63,5 +63,7 @@ abstract class AppColors {
 
   static const Color colorFoundationSurfaceDark = Color(0xffeeeeee);
 
+  static const Color colorFoundationGold = Color(0xfffbbe21);
+
 
 }

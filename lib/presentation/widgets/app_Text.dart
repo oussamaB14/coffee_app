@@ -1,4 +1,5 @@
 // lib/core/widgets/custom_text.dart
+import 'package:coffee_app/app/theme/app_collors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -23,9 +24,9 @@ class AppText extends StatelessWidget {
   // Custom text styles
   static TextStyle titleLarge(BuildContext context) {
     return GoogleFonts.sora(
-      fontSize: 32,
-      fontWeight: FontWeight.bold,
-      color: Colors.black,
+      fontSize: 20,
+      fontWeight: FontWeight.w600,
+      color: AppColors.colorFoundationGreyNormalActive,
     );
   }
 
@@ -40,8 +41,8 @@ class AppText extends StatelessWidget {
   static TextStyle titleSmall(BuildContext context) {
     return GoogleFonts.sora(
       fontSize: 16,
-      fontWeight: FontWeight.w500,
-      color: Colors.black,
+      fontWeight: FontWeight.w600,
+      color: AppColors.colorFoundationGreyNormalActive,
     );
   }
 
@@ -63,9 +64,16 @@ class AppText extends StatelessWidget {
 
   static TextStyle bodySmall(BuildContext context) {
     return GoogleFonts.sora(
-      fontSize: 12,
-      fontWeight: FontWeight.normal,
-      color: Colors.black,
+      fontSize: 16,
+      fontWeight: FontWeight.w300,
+      color: AppColors.colorFoundationGreyNormal,
+    );
+  }
+   static TextStyle rating(BuildContext context) {
+    return GoogleFonts.sora(
+      fontSize: 18,
+      fontWeight: FontWeight.w600,
+      color: AppColors.colorFoundationGreyDarkHover,
     );
   }
 
