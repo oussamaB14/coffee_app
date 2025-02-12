@@ -51,7 +51,7 @@ class LandingScreen extends StatelessWidget {
                       Center(
                         child: AppText(
                           'Fall in Love with\nCoffee in Blissful\nDelight!',
-                          style: AppText.titleLarge(context),
+                          style: AppText.titleLanding(context),
                           color: AppColors.colorFoundationSurfaceWhite,
                           textAlign: TextAlign.center,
                         ),

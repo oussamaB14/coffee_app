@@ -32,81 +32,78 @@ class DetailsScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(12.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ClipRRect(
-                borderRadius: BorderRadius.circular(12),
-                child: Image.asset('assets/images/Coffee/1.png')),
-            SizedBox(
-              height: 12,
-            ),
-            Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              AppText(
-                'Coffee Mocha',
-                style: AppText.titleLarge(context),
-                //: TextAlign.start,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: Image.asset('assets/images/Coffee/1.png')),
+              SizedBox(
+                height: 12,
               ),
-              //SizedBox(height: 2),
-              Row(
-                spacing: 12,
-                children: [
-                  AppText(
-                    'Ice/Hot',
-                    style: AppText.bodySmall(context),
-                    color: AppColors.colorFoundationGreyLighter,
-                    //: TextAlign.start,
-                  ),
-                  Spacer(),
-                  customIconContainer('assets/icons/motorbike 1.svg'),
-                  customIconContainer('assets/icons/coffee-bean.svg'),
-                  customIconContainer('assets/icons/packaging.svg'),
-                ],
-              ),
-              Row(
-                children: [
-                  Icon(IconlyBold.star, color: AppColors.colorFoundationGold),
-                  SizedBox(width: 4),
-                  AppText(
-                    '4.8',
-                    style: AppText.rating(context),
-                  ),
-                  SizedBox(width: 2),
-                  AppText(
-                    '(257)',
-                    style: AppText.bodySmall(context),
-                    color: AppColors.colorFoundationGreyLighter,
-                  ),
-                ],
-              ),
-              Divider(
-                color: AppColors.colorFoundationSurfaceLightActive,
-                height: 16,
-                indent: 10,
-                endIndent: 10,
-              ),
-              SizedBox(height: 5),
-              AppText('Description', style: AppText.titleSmall(context)),
-              SizedBox(height: 12),
-              expandableText(
-                context,
-                'lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-              ),
-              SizedBox(height: 16),
-              AppText('Size', style: AppText.titleSmall(context)),
-              SizedBox(height: 12),
-              sizeSelection(context),
-              SizedBox(height: 16),
-              _buildBottomPriceBar(
-                //price: 4.53,
-                //onPressed: () => _handleAddToCart(),
-              )
-            ])
-          ],
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                AppText(
+                  'Coffee Mocha',
+                  style: AppText.titleLarge(context),
+                  //: TextAlign.start,
+                ),
+                //SizedBox(height: 2),
+                Row(
+                  spacing: 12,
+                  children: [
+                    AppText(
+                      'Ice/Hot',
+                      style: AppText.bodySmall(context),
+                      color: AppColors.colorFoundationGreyLighter,
+                      //: TextAlign.start,
+                    ),
+                    Spacer(),
+                    customIconContainer('assets/icons/motorbike 1.svg'),
+                    customIconContainer('assets/icons/coffee-bean.svg'),
+                    customIconContainer('assets/icons/packaging.svg'),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Icon(IconlyBold.star, color: AppColors.colorFoundationGold),
+                    SizedBox(width: 4),
+                    AppText(
+                      '4.8',
+                      style: AppText.rating(context),
+                    ),
+                    SizedBox(width: 2),
+                    AppText(
+                      '(257)',
+                      style: AppText.bodySmall(context),
+                      color: AppColors.colorFoundationGreyLighter,
+                    ),
+                  ],
+                ),
+                Divider(
+                  color: AppColors.colorFoundationSurfaceLightActive,
+                  height: 16,
+                  indent: 10,
+                  endIndent: 10,
+                ),
+                SizedBox(height: 5),
+                AppText('Description', style: AppText.titleSmall(context)),
+                SizedBox(height: 12),
+                expandableText(
+                  context,
+                  'lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                ),
+                SizedBox(height: 16),
+                AppText('Size', style: AppText.titleSmall(context)),
+                SizedBox(height: 12),
+                sizeSelection(context),
+                //SizedBox(height: 16),
+              ])
+            ],
+          ),
         ),
       ),
-      // bottomNavigationBar: BottomNavigationBar(items: [],
-      // backgroundColor: AppColors.colorFoundationBrownDark,),
+      bottomNavigationBar: _buildBottomPriceBar(),
     );
   }
 }
@@ -141,7 +138,7 @@ Widget customIconContainer(String assetPath) {
 }
 
 Widget expandableText(BuildContext context, String text) {
-  const int previewLength = 100;
+  const int previewLength = 200;
 
   return Builder(
     builder: (context) {
@@ -247,62 +244,54 @@ Widget sizeSelection(BuildContext context) {
   );
 }
 
-Widget _buildBottomPriceBar() {
-  return Container(
-    height: 80,
-    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-    decoration: BoxDecoration(
-      color: Colors.white,
-      boxShadow: [
-        BoxShadow(
-          color: Colors.grey.withOpacity(0.1),
-          spreadRadius: 2,
-          blurRadius: 8,
-          offset: const Offset(0, -2),
-        )
-      ],
-    ),
+BottomAppBar _buildBottomPriceBar() {
+  return BottomAppBar(
+    elevation: 8,
+    color: Colors.white,
+    shape: const CircularNotchedRectangle(),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              'Total Price',
+              'Price',
               style: TextStyle(
                 fontSize: 14,
-                color: Colors.grey[600],
+                color: AppColors.colorFoundationGreyLightHover,
               ),
             ),
             Text(
-              '\$price',
+              '\$4.53', 
               style: const TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: AppColors.colorFoundationBrownDark,
+                color: AppColors.colorFoundationBrownNormal,
               ),
             ),
           ],
         ),
-        ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: AppColors.colorFoundationBrownNormal,
-            padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
+        SizedBox(
+          width: 217,
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: AppColors.colorFoundationBrownNormal,
+              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
             ),
-          ),
-          onPressed: () {
-            // Handle purchase
-          },
-          child: const Text(
-            'Add to Cart',
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-              color: Colors.white,
+            onPressed: () {
+          
+            },
+            child: const Text(
+              'Buy Now',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+                color: AppColors.colorFoundationSurfaceWhite,
+              ),
             ),
           ),
         ),

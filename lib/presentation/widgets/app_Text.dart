@@ -76,6 +76,13 @@ class AppText extends StatelessWidget {
       color: AppColors.colorFoundationGreyDarkHover,
     );
   }
+   static TextStyle titleLanding(BuildContext context) {
+    return GoogleFonts.sora(
+      fontSize: 36,
+      fontWeight: FontWeight.w600,
+      color: AppColors.colorFoundationGreyNormalActive,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
