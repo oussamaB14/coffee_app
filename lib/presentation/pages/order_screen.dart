@@ -1,4 +1,5 @@
 import 'package:coffee_app/app/theme/app_collors.dart';
+import 'package:coffee_app/presentation/widgets/_OrderScreenWidgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -10,15 +11,15 @@ class OrderScreen extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
+        
         appBar: AppBar(
-          title: Text("Order & Pick Up"),
+          title: Text("Order"),
           bottom: PreferredSize(
             preferredSize: Size.fromHeight(60),
             child: Container(
               margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               decoration: BoxDecoration(
-                color: AppColors
-                    .colorFoundationSurfaceLightHover, // Grey background
+                color: AppColors.colorFoundationSurfaceLightHover,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: TabBar(
@@ -27,14 +28,11 @@ class OrderScreen extends StatelessWidget {
                   Tab(text: 'Pick Up'),
                 ],
                 indicator: BoxDecoration(
-                  color: AppColors
-                      .colorFoundationBrownNormal, // Selected tab color
-                  borderRadius: BorderRadius.circular(8),
+                  color: AppColors.colorFoundationBrownNormal,
+                  borderRadius: BorderRadius.circular(10),
                 ),
-                labelColor: AppColors
-                    .colorFoundationSurfaceWhite, // White text for selected tab
-                unselectedLabelColor:
-                    Colors.black, // Black text for unselected tab
+                labelColor: AppColors.colorFoundationSurfaceWhite,
+                unselectedLabelColor: Colors.black,
                 labelStyle: GoogleFonts.sora(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
@@ -46,14 +44,14 @@ class OrderScreen extends StatelessWidget {
                 indicatorSize: TabBarIndicatorSize.tab,
                 indicatorWeight: 0,
                 indicatorPadding: EdgeInsets.all(4),
-                dividerColor: Colors.transparent, // Remove default divider
+                dividerColor: Colors.transparent,
               ),
             ),
           ),
         ),
         body: TabBarView(
           children: [
-            Center(child: Text("Deliver Content")),
+            OrderScreenWidgets(),
             Center(child: Text("Pick Up Content")),
           ],
         ),
