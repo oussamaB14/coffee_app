@@ -1,3 +1,4 @@
+import 'package:coffee_app/app/routes/routes.dart';
 import 'package:coffee_app/app/theme/app_collors.dart';
 import 'package:coffee_app/presentation/widgets/app_Text.dart';
 import 'package:flutter/material.dart';
@@ -103,7 +104,7 @@ class DetailsScreen extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: _buildBottomPriceBar(),
+      bottomNavigationBar: _buildBottomPriceBar(context),
     );
   }
 }
@@ -244,7 +245,7 @@ Widget sizeSelection(BuildContext context) {
   );
 }
 
-BottomAppBar _buildBottomPriceBar() {
+BottomAppBar _buildBottomPriceBar( BuildContext context) {
   return BottomAppBar(
     elevation: 8,
     color: Colors.white,
@@ -283,7 +284,8 @@ BottomAppBar _buildBottomPriceBar() {
               ),
             ),
             onPressed: () {
-          
+                      Navigator.pushNamed(context, AppRoutes.order);
+
             },
             child: const Text(
               'Buy Now',

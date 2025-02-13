@@ -52,6 +52,7 @@ class OrderScreen extends StatelessWidget {
         body: TabBarView(
           children: [
             OrderScreenWidgets(),
+            
             Center(child: Text("Pick Up Content")),
           ],
         ),

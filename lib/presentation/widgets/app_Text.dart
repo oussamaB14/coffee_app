@@ -56,15 +56,15 @@ class AppText extends StatelessWidget {
 
   static TextStyle bodyMedium(BuildContext context) {
     return GoogleFonts.sora(
-      fontSize: 14,
-      fontWeight: FontWeight.normal,
-      color: Colors.black,
+      fontSize: 16,
+      fontWeight: FontWeight.w600,
+      color: AppColors.colorFoundationGreyNormal,
     );
   }
 
   static TextStyle bodySmall(BuildContext context) {
     return GoogleFonts.sora(
-      fontSize: 16,
+      fontSize: 14,
       fontWeight: FontWeight.w300,
       color: AppColors.colorFoundationGreyNormal,
     );

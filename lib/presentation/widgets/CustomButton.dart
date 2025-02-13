@@ -19,10 +19,10 @@ class CustomButton extends StatelessWidget {
     required this.text,
     this.backgroundColor = AppColors.colorFoundationBrownNormal,
     this.textColor = AppColors.colorFoundationSurfaceWhite,
-    this.fontSize = 18,
+    this.fontSize = 16,
     this.fontWeight = FontWeight.w600,
     this.padding = const EdgeInsets.symmetric(vertical: 16),
-    this.borderRadius = 12,
+    this.borderRadius = 16,
   });
 
   @override
