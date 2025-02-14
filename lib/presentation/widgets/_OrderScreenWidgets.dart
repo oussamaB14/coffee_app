@@ -1,3 +1,4 @@
+import 'package:coffee_app/app/routes/routes.dart';
 import 'package:coffee_app/app/theme/app_collors.dart';
 import 'package:coffee_app/presentation/widgets/CustomButton.dart';
 import 'package:coffee_app/presentation/widgets/_QuantitySelector.dart';
@@ -273,14 +274,15 @@ Widget buildBottomOrderBar(BuildContext context) {
                 ),
               ],
             ),
-            Icon(Icons.keyboard_arrow_down, color: AppColors.colorFoundationGreyNormalHover),
+            Icon(Icons.keyboard_arrow_down,
+                color: AppColors.colorFoundationGreyNormalHover),
           ],
         ),
         const SizedBox(height: 4),
         const SizedBox(height: 12),
         CustomButton(
           onPressed: () {
-            // Navigator.pushNamed(context, AppRoutes.wrapper);
+            Navigator.pushNamed(context, AppRoutes.delivery);
           },
           text: 'Order',
         ),

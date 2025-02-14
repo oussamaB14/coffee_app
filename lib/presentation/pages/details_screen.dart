@@ -20,8 +20,13 @@ class DetailsScreen extends StatelessWidget {
           style: GoogleFonts.sora(
             //fontSize: 32,
             fontWeight: FontWeight.w600,
-              color: AppColors.colorFoundationGreyNormalActive,
+            color: AppColors.colorFoundationGreyNormalActive,
           ),
+        ),
+        leading: IconButton(
+          icon: const Icon(IconlyLight.arrow_left_2,
+              color: AppColors.colorFoundationGreyNormalActive),
+          onPressed: () => Navigator.pop(context),
         ),
         actions: [
           IconButton(
@@ -245,7 +250,7 @@ Widget sizeSelection(BuildContext context) {
   );
 }
 
-BottomAppBar _buildBottomPriceBar( BuildContext context) {
+BottomAppBar _buildBottomPriceBar(BuildContext context) {
   return BottomAppBar(
     elevation: 8,
     color: Colors.white,
@@ -264,7 +269,7 @@ BottomAppBar _buildBottomPriceBar( BuildContext context) {
               ),
             ),
             Text(
-              '\$4.53', 
+              '\$4.53',
               style: const TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
@@ -284,8 +289,7 @@ BottomAppBar _buildBottomPriceBar( BuildContext context) {
               ),
             ),
             onPressed: () {
-                      Navigator.pushNamed(context, AppRoutes.order);
-
+              Navigator.pushNamed(context, AppRoutes.order);
             },
             child: const Text(
               'Buy Now',

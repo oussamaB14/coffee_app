@@ -2,6 +2,7 @@ import 'package:coffee_app/app/theme/app_collors.dart';
 import 'package:coffee_app/presentation/pages/delivery_screen.dart';
 import 'package:coffee_app/presentation/pages/details_screen.dart';
 import 'package:coffee_app/presentation/pages/home_screen.dart';
+import 'package:coffee_app/presentation/pages/notification_screen.dart';
 import 'package:coffee_app/presentation/pages/order_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
@@ -19,7 +20,7 @@ class _WrapperState extends State<Wrapper> {
     const HomeScreen(),
     const DetailsScreen(),
     const OrderScreen(),
-    const DeliveryScreen(),
+    const NotificationScreen(),
   ];
 
   @override

@@ -2,6 +2,7 @@ import 'package:coffee_app/app/theme/app_collors.dart';
 import 'package:coffee_app/presentation/widgets/_OrderScreenWidgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:iconly/iconly.dart';
 
 class OrderScreen extends StatelessWidget {
   const OrderScreen({super.key});
@@ -18,6 +19,11 @@ class OrderScreen extends StatelessWidget {
               fontWeight: FontWeight.w600,
               color: AppColors.colorFoundationGreyNormalActive,
             ),
+          ),
+          leading: IconButton(
+            icon: const Icon(IconlyLight.arrow_left_2,
+                color: AppColors.colorFoundationGreyNormalActive),
+            onPressed: () => Navigator.pop(context),
           ),
           centerTitle: true,
           bottom: PreferredSize(

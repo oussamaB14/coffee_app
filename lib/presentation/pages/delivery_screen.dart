@@ -1,4 +1,5 @@
 import 'package:coffee_app/app/theme/app_collors.dart';
+import 'package:coffee_app/core/constants/services/location_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_svg/svg.dart';
@@ -6,8 +7,35 @@ import 'package:iconly/iconly.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class DeliveryScreen extends StatelessWidget {
+class DeliveryScreen extends StatefulWidget {
   const DeliveryScreen({super.key});
+
+  @override
+  State<DeliveryScreen> createState() => _DeliveryScreenState();
+}
+
+class _DeliveryScreenState extends State<DeliveryScreen> {
+  final LatLng _currentLocation =
+      const LatLng(36.8665, 10.1647); // Default location
+  final MapController _mapController = MapController();
+  final LocationService _locationService = LocationService();
+
+  // void initState() {
+  //   super.initState();
+  //   _fetchLocation();
+  // }
+
+  void _goToCurrentLocation() async {
+    final position = await _locationService.getCurrentLocation();
+    if (position != null) {
+      _mapController.move(
+        LatLng(position.latitude, position.longitude),
+        15.0, // Zoom level
+      );
+    } else {
+      print("💔 Could not get current location.");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,22 +45,31 @@ class DeliveryScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          style: ButtonStyle(
+              backgroundColor: WidgetStateProperty.all(
+                  AppColors.colorFoundationSurfaceWhiteActive)),
+          icon: const Icon(IconlyLight.arrow_left_2,
+              color: AppColors.colorFoundationGreyNormalActive),
           onPressed: () => Navigator.pop(context),
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.gps_fixed, color: Colors.black),
-            onPressed: () {},
+            style: ButtonStyle(
+                backgroundColor: WidgetStateProperty.all(
+                    AppColors.colorFoundationSurfaceWhiteActive)),
+            icon: const Icon(Icons.gps_fixed,
+                color: AppColors.colorFoundationGreyNormalActive),
+            onPressed: _goToCurrentLocation,
           ),
         ],
       ),
       body: Stack(
         children: [
           FlutterMap(
+            mapController: _mapController,
             options: MapOptions(
-              initialCenter: const LatLng(36.8665, 10.1647),
-              initialZoom: 16.0,
+              initialCenter: _currentLocation,
+              initialZoom: 30.0,
             ),
             children: [
               TileLayer(
@@ -93,10 +130,10 @@ class DeliveryScreen extends StatelessWidget {
                       ),
                       children: [
                         TextSpan(
-                          text: 'Jl.Kpg Sutoyo', 
+                          text: 'Jl.Kpg Sutoyo',
                           style: GoogleFonts.sora(
                             fontSize: 14,
-                            fontWeight: FontWeight.bold, 
+                            fontWeight: FontWeight.bold,
                             color: AppColors.colorFoundationGreyNormalHover,
                           ),
                         ),
