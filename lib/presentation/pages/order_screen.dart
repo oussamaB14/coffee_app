@@ -11,9 +11,15 @@ class OrderScreen extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        
         appBar: AppBar(
-          title: Text("Order"),
+          title: Text(
+            "Order",
+            style: GoogleFonts.sora(
+              fontWeight: FontWeight.w600,
+              color: AppColors.colorFoundationGreyNormalActive,
+            ),
+          ),
+          centerTitle: true,
           bottom: PreferredSize(
             preferredSize: Size.fromHeight(60),
             child: Container(
@@ -32,7 +38,7 @@ class OrderScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 labelColor: AppColors.colorFoundationSurfaceWhite,
-                unselectedLabelColor: Colors.black,
+                unselectedLabelColor: AppColors.colorFoundationGreyNormal,
                 labelStyle: GoogleFonts.sora(
                   fontSize: 16,
                   fontWeight: FontWeight.w600,
@@ -52,7 +58,6 @@ class OrderScreen extends StatelessWidget {
         body: TabBarView(
           children: [
             OrderScreenWidgets(),
-            
             Center(child: Text("Pick Up Content")),
           ],
         ),

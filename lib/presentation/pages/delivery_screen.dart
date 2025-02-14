@@ -81,23 +81,35 @@ class DeliveryScreen extends StatelessWidget {
                     style: GoogleFonts.sora(
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
-                      color: Colors.red[400],
+                      color: AppColors.colorFoundationGreyNormalActive,
                     ),
                   ),
-                  Text(
-                    'Delivery to Jl.Kpg Sutoyo',
-                    style: GoogleFonts.sora(
-                      fontSize: 14,
-                      color: Colors.grey[600],
+                  Text.rich(
+                    TextSpan(
+                      text: 'Delivery to ', // Normal text
+                      style: GoogleFonts.sora(
+                        fontSize: 14,
+                        color: AppColors.colorFoundationGreyLighter,
+                      ),
+                      children: [
+                        TextSpan(
+                          text: 'Jl.Kpg Sutoyo', 
+                          style: GoogleFonts.sora(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold, 
+                            color: AppColors.colorFoundationGreyNormalHover,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   const SizedBox(height: 20),
                   Card(
                     shape: RoundedRectangleBorder(
-                      borderRadius:
-                          BorderRadius.circular(16), // Card border radius
-                      side:
-                          BorderSide(color: Colors.grey[300]!), // Border color
+                      borderRadius: BorderRadius.circular(16),
+                      side: BorderSide(
+                        color: AppColors.colorFoundationSurfaceLightActive,
+                      ),
                     ),
                     color: Colors.white, // Background color
                     elevation: 0, // No shadow for a clean look
@@ -110,11 +122,12 @@ class DeliveryScreen extends StatelessWidget {
                             height: 44.0,
                             decoration: BoxDecoration(
                               color: AppColors.colorFoundationSurfaceLightActive
-                                  .withOpacity(0.1),
-                              borderRadius: BorderRadius.circular(
-                                  12), // Icon container border radius
+                                  .withValues(alpha: (0.1)),
+                              borderRadius: BorderRadius.circular(12),
                               border: Border.all(
-                                  color: Colors.grey[300]!), // Border color
+                                color:
+                                    AppColors.colorFoundationSurfaceLightActive,
+                              ),
                             ),
                             padding: const EdgeInsets.all(10),
                             child: Transform(
@@ -138,16 +151,17 @@ class DeliveryScreen extends StatelessWidget {
                               Text(
                                 'Delivered your order',
                                 style: GoogleFonts.sora(
-                                  fontSize: 16,
+                                  fontSize: 14,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.black, // Ensure contrast
+                                  color: AppColors
+                                      .colorFoundationGreyNormalActive, // Ensure contrast
                                 ),
                               ),
                               Text(
                                 'We will deliver your goods to you in\nthe shortest possible time.',
                                 style: GoogleFonts.sora(
-                                  fontSize: 14,
-                                  color: Colors.grey[600],
+                                  fontSize: 12,
+                                  color: AppColors.colorFoundationGreyLighter,
                                 ),
                               ),
                             ],
@@ -159,9 +173,14 @@ class DeliveryScreen extends StatelessWidget {
                   const SizedBox(height: 16),
                   Row(
                     children: [
-                      const CircleAvatar(
-                        radius: 24,
-                        backgroundImage: AssetImage('assets/courier.png'),
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(12),
+                        child: Image.asset(
+                          'assets/images/person.png',
+                          width: 54,
+                          height: 54,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                       const SizedBox(width: 12),
                       Column(
@@ -183,6 +202,22 @@ class DeliveryScreen extends StatelessWidget {
                           ),
                         ],
                       ),
+                      Spacer(),
+                      Container(
+                        width: 44.0,
+                        height: 44.0,
+                        decoration: BoxDecoration(
+                          color: AppColors.colorFoundationSurfaceLightActive
+                              .withValues(alpha: (0.1)),
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(
+                            color: AppColors.colorFoundationSurfaceLightActive,
+                          ),
+                        ),
+                        child: Icon(IconlyLight.calling,
+                            size: 24,
+                            color: AppColors.colorFoundationGreyNormalHover),
+                      )
                     ],
                   ),
                 ],
