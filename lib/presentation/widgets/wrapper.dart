@@ -1,5 +1,4 @@
 import 'package:coffee_app/app/theme/app_collors.dart';
-import 'package:coffee_app/presentation/pages/delivery_screen.dart';
 import 'package:coffee_app/presentation/pages/details_screen.dart';
 import 'package:coffee_app/presentation/pages/home_screen.dart';
 import 'package:coffee_app/presentation/pages/notification_screen.dart';

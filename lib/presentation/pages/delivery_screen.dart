@@ -33,7 +33,7 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
         15.0, // Zoom level
       );
     } else {
-      print("💔 Could not get current location.");
+     // print("💔 Could not get current location.");
     }
   }
 
@@ -69,7 +69,7 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
             mapController: _mapController,
             options: MapOptions(
               initialCenter: _currentLocation,
-              initialZoom: 30.0,
+              initialZoom: 16.0,
             ),
             children: [
               TileLayer(
@@ -234,7 +234,7 @@ class _DeliveryScreenState extends State<DeliveryScreen> {
                             'Personal Courier',
                             style: GoogleFonts.sora(
                               fontSize: 14,
-                              color: Colors.grey[600],
+                              color: AppColors.colorFoundationGreyLighter,
                             ),
                           ),
                         ],
